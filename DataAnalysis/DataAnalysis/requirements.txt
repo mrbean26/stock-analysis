@@ -1,0 +1,8 @@
+pip==21.2.3
+setuptools==57.4.0
+selenium
+webdriver-manager
+pytz
+matplotlib
+scipy
+numpy

@@ -1,0 +1,30 @@
+def GetHistoricalStockData(unixStartDate, unixEndDate, ticker, frequency):
+    if not(frequency in ["1d", "1wk", "1mo"]):
+        print("Incorrect Frequency Format:", frequency)
+        return None
+
+    GoogleStockURL = "https://query1.finance.yahoo.com/v7/finance/download/" + ticker + "?period1=" + unixStartDate + "&period2=" + unixEndDate + "&interval=1d&events=history&includeAdjustedClose=true"
+    
+    filename = "stockdata.csv"
+    try:
+        urlretrieve(GoogleStockURL, filename)
+    except HTTPError:
+        print("Data not found. Possible wrong ticker or frequency input.")
+        return None
+
+    # load values
+    csvFile = open("stockdata.csv", "r")
+    lines = csvFile.readlines()
+    csvFile.close()
+
+    outputStockData = []
+
+    for i in range(1, len(lines)):
+        lineData = lines[i].strip().split(",")
+    
+        date = datetime.strptime(lineData[0], "%Y-%m-%d")
+        closingPrice = float(lineData[4])
+
+        outputStockData.append([date, closingPrice])
+
+    return outputStockData
