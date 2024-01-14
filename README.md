@@ -4,3 +4,8 @@
 3. The option to upload the retrieved data to an online backup source is offered. This is also through a free source.
 4. All goals set out at the start of the project were achieved.
 ![](/Screenshots/Stock_Live.PNG)
+![](/Screenshots/Stock_Historical.PNG)
+![](/Screenshots/Crypto_Live.PNG)
+![](/Screenshots/Crypto_Historical.PNG)
+![](/Screenshots/Retrieve_Data.PNG)
+![](/Screenshots/CLI.PNG)
